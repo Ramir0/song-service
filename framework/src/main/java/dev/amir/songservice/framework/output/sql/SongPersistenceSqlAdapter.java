@@ -5,6 +5,7 @@ import dev.amir.songservice.domain.entity.Song;
 import dev.amir.songservice.framework.output.sql.mapper.SongEntityMapper;
 import dev.amir.songservice.framework.output.sql.repository.SongRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -13,6 +14,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class SongPersistenceSqlAdapter implements SongPersistenceOutputPort {
@@ -21,7 +23,9 @@ public class SongPersistenceSqlAdapter implements SongPersistenceOutputPort {
 
     @Override
     public Song saveSong(Song song) {
+        log.info("Saving [{}]", song);
         var songEntity = songRepository.save(Objects.requireNonNull(mapper.convert(song)));
+        log.info("Song was successfully saved with Id: [{}]", songEntity.getId());
         return Objects.requireNonNull(mapper.convert(songEntity));
     }
 

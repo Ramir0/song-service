@@ -5,12 +5,10 @@ import dev.amir.songservice.application.usecase.SongManagementUseCase;
 import dev.amir.songservice.domain.entity.Song;
 import dev.amir.songservice.domain.exception.SongNotFoundException;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
-@Slf4j
 @Service
 @RequiredArgsConstructor
 public class SongManagementInputPort implements SongManagementUseCase {
