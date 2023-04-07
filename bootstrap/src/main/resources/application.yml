@@ -1,10 +1,13 @@
 server:
   port: 8082
+
 spring:
+  profiles:
+    default: dev
   datasource:
-    url: jdbc:postgresql://localhost:5433/song-db
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://song-db:5432/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     packages-to-scan: dev.amir.songservice.framework.output.sql.entity
