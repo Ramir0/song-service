@@ -20,7 +20,7 @@ Please make sure that all of these dependencies are installed and configured cor
 - `mvn spring-boot:run -f bootstrap/pom.xml`
 ### Running from Dockerfile
 - `docker build --no-cache -t song-service:latest .`
-- `docker run -d --env-file .env --name song-service-container -p 8082:8082 --network resource-network song-service`
+- `docker run -d --env-file .env --name song-service -p 8082:8082 --network resource-network song-service`
 
 ## Running Tests
 
